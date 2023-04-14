@@ -1,0 +1,42 @@
+{
+	"name": "block-chen/blocksdk-php",
+	"description": "Pure (no dependencies) implementation of blocksdk", 
+	"keywords": ["blocksdk","blockchen","sdk","bitcoin","dash","monero","litecoin","ethereum","bitcoincash"],
+	"type": "library",
+	"license":"Apache-2.0",
+	"authors": [
+	{
+		"name": "BlockChain SDK Service",
+		"homepage": "https://blocksdk.com" 
+	}
+	], 
+	"support": {
+        "issues": "https://github.com/Block-Chen/blocksdk-php/issues"
+    },
+	"homepage": "https://github.com/Block-Chen/blocksdk-php",
+	"license": "Apache-2.0",
+	"autoload": {
+		"psr-4": {
+			"BlockSDK\\": "src/"
+		},
+		"files": ["src/base.php","src/blocksdk.php","src/market.php","src/token.php","src/tool.php","src/webhook.php","src/dash.php","src/bitcoin.php","src/bitcoincash.php","src/ethereum.php","src/litecoin.php","src/monero.php","src/solc.php","src/klaytn.php","src/binancesmart.php"]
+	},
+    "require": {
+        "php": ">=5.5",
+        "ext-json": "*"
+    },
+	"require-dev": {
+		"ext-openssl": "*",
+		"phpunit/phpunit": "^5.4.0",
+		"squizlabs/php_codesniffer": "^2.0.0"
+	},
+    "suggest": {
+        "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
+        "ext-curl": "To send requests using cURL"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }	
+}

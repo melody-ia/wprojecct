@@ -1,0 +1,5 @@
+{
+    "require": {
+        "block-chen/blocksdk-php": "^2.1"
+    }
+}
