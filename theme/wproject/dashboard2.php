@@ -4,7 +4,7 @@
 	include_once(G5_THEME_PATH.'/_include/gnb.php');
 	include_once(G5_PATH.'/util/package.php');
 	include_once(G5_LIB_PATH.'/fcm_push/set_fcm_token.php');
-    include_once(G5_PATH.'/lib/guzzle/vendor/autoload.php');
+    include_once(G5_PATH.'/lib/BlockSDK_v3/vendor/autoload.php');
     
 
 	login_check($member['mb_id']);
@@ -42,9 +42,43 @@
         <div>
 
         <?
-            $api = 'f54c06f6ed4647c3a1659249b976333b';
-            $end_point = "https://goerli.infura.io/v3/f54c06f6ed4647c3a1659249b976333b";
+            
+            $BlockSDK_API_KEY = "BsokFsOPhUSbtMVnmgTJYSNyP9VdrkoynMEb7ag9";
+            $ethereumClient = BlockSDK::createEthereum($BlockSDK_API_KEY);
+            
+            $callback_url = G5_URL."/plugin/blocksdk/point-callback.php";
 
+
+            if(empty($member['mb_wallet'])==true){
+                $address = $ethereumClient->CreateAddress([
+                    "name" => "w_no_".$member['mb_no']
+                ]);
+           
+                echo "<br>";
+                echo "=====================";
+                print_R($address);
+                echo "=====================";
+                echo "<br>";
+
+                // $webhook_Add = WebHook::create($callback_url,"eth",$address['address']);
+
+                $address_in = $address['payload'];
+                $update_sql = "mb_wallet='{$address_in['address']}'";
+
+                $sql = "
+                insert into 
+                blocksdk_member_eth_addresses (id, address, private_key) 
+                values ('{$address_in['id']}', '{$address_in['address']}','{$address_in['privateKey']}')
+                ";
+                sql_fetch($sql);
+
+                if(empty($update_sql) == false){
+                    $sql = "UPDATE {$g5['member_table']} SET {$update_sql} WHERE mb_no={$member['mb_no']}";
+                    sql_query($sql);
+                }
+                // alert("지갑이 생성되었습니다.");
+
+            }
         ?>
 
         </div>
