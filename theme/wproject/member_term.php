@@ -31,10 +31,10 @@ $title = '회원약관';
         <p class="mb-2">개인정보 수집 및 이용약관</p>
         <div class="white mb-4 contents"><?=conv_content($array[1]['wr_content'],2)?></div>
 	</div>    
-    <div class='footer'>
+    <!-- <div class='footer'>
         <p class='company'> HWAJO GLOBAL ASSET <br>이메일 : <?=$config['cf_admin_email']?></p>
         <p class='copyright'>Copyright ⓒ 2023. HWAJO Co. ALL right reserved.</p>
-    </div>
+    </div> -->
 </main>
 
 

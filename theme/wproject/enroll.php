@@ -806,8 +806,8 @@ if ($_GET['recom_referral']){
 </div>
 
 <div class='footer' style="position:relative;bottom:25px;">
-		<p class='company mb10'> HWAJO GLOBAL ASSET <br>이메일 : <?=$config['cf_admin_email']?>
-		<p class='copyright'>Copyright ⓒ 2023. Hwajo Co. ALL right reserved.</p>
+		<!-- <p class='company mb10'> HWAJO GLOBAL ASSET <br>이메일 : <?=$config['cf_admin_email']?> -->
+		<p class='copyright'>Copyright ⓒ 2023. WIZCLASS Co. ALL right reserved.</p>
 	</div>
 </section>
 

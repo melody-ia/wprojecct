@@ -124,14 +124,14 @@ $(document).ready(function(){
 				</a>
 			</li> 
 			<?}?>
-			<li class="bonus_history_icon <? if($_GET['id'] === 'bonus_history') {echo 'active';}?>">
+			<!-- <li class="bonus_history_icon <? if($_GET['id'] === 'bonus_history') {echo 'active';}?>">
 				<a href="/page.php?id=bonus_history">
 					<div class="gnb_img_wrap"></div>
 					<div class="gnb_title_Wrap">
 						<span >보너스내역</span>
 					</div>
 				</a>
-			</li>
+			</li> -->
 			
 			<!-- <?if($member['center_use'] == 1){?>
 			<li class="center_page_icon <? if($_GET['id'] === 'center_page') {echo 'active';}?>">
@@ -223,7 +223,7 @@ $(document).ready(function(){
 
 	<div class="top_title">
 		<h3>
-			<a href="/"><img src= "<?=G5_THEME_URL?>/img/title.png" alt="logo"></a>
+			<a href="/"><img src= "<?=G5_THEME_URL?>/img/logo.png" alt="logo"></a>
 			<?if($member['mb_level'] >= 9){?><button type="button" class='btn adm_btn' onclick="location.href= '<?=G5_ADMIN_URL?>'" ><i class="ri-user-settings-line"></i>Admin</button><?}?>
 		</h3>
 		<select name="" id="mode_select" >
